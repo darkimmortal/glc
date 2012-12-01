@@ -191,6 +191,8 @@ int wav_write_hdr(wav_t wav, glc_audio_format_message_t *fmt_msg)
 {
 	int sample_size;
 	char *filename;
+        short format_tag = 1;
+        
 
 	if (fmt_msg->id != wav->id)
 		return 0;
@@ -201,8 +203,10 @@ int wav_write_hdr(wav_t wav, glc_audio_format_message_t *fmt_msg)
 		sample_size = 3;
 	else if (fmt_msg->format == GLC_AUDIO_S32_LE)
 		sample_size = 4;
-	else if (fmt_msg->format == GLC_AUDIO_FLOAT_LE)
+	else if (fmt_msg->format == GLC_AUDIO_FLOAT_LE){
 		sample_size = 4;
+                format_tag = 3;
+        }
 	else {
 		glc_log(wav->glc, GLC_ERROR, "wav",
 			 "unsupported format 0x%02x (stream %d)", fmt_msg->flags, fmt_msg->id);
@@ -229,7 +233,7 @@ int wav_write_hdr(wav_t wav, glc_audio_format_message_t *fmt_msg)
 	struct wav_hdr hdr = {0x46464952, 0xffffffff, 0x45564157};
 	struct wav_fmt fmt = {0x20746D66, /* id */
 			      16, /* chunk size */
-			      1, /* compression */
+			      format_tag, /* compression */
 			      fmt_msg->channels, /* channels */
 			      fmt_msg->rate, /* rate */
 			      fmt_msg->rate * sample_size * fmt_msg->channels, /* bps */
