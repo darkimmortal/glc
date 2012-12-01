@@ -377,6 +377,9 @@ void audio_format_info(info_t info, glc_audio_format_message_t *fmt_message)
 			case GLC_AUDIO_S32_LE:
 				fprintf(info->stream, "GLC_AUDIO_S32_LE\n");
 				break;
+			case GLC_AUDIO_FLOAT_LE:
+				fprintf(info->stream, "GLC_AUDIO_FLOAT_LE\n");
+				break;
 			default:
 				fprintf(info->stream, "unknown format 0x%02x\n",
 					fmt_message->format);

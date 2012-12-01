@@ -69,6 +69,8 @@ snd_pcm_format_t glc_fmt_to_pcm_fmt(glc_audio_format_t format)
 			return SND_PCM_FORMAT_S24_LE;
 		case GLC_AUDIO_S32_LE:
 			return SND_PCM_FORMAT_S32_LE;
+		case GLC_AUDIO_FLOAT_LE:
+			return SND_PCM_FORMAT_FLOAT_LE;
 	}
 	return 0;
 }

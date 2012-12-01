@@ -53,6 +53,7 @@ __PUBLIC int audio_capture_set_buffer(audio_capture_t audio_capture, ps_buffer_t
  *  * GLC_AUDIO_S16_LE
  *  * GLC_AUDIO_S24_LE
  *  * GLC_AUDIO_S32_LE
+ *  * GLC_AUDIO_FLOAT_LE
  * \param audio_capture audio_capture object
  * \param format format
  * \return 0 on success otherwise an error code

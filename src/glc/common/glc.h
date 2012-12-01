@@ -277,6 +277,8 @@ typedef u_int8_t glc_audio_format_t;
 #define GLC_AUDIO_S24_LE                0x2
 /** signed 32bit little-endian */
 #define GLC_AUDIO_S32_LE                0x3
+/** signed 32bit little-endian */
+#define GLC_AUDIO_FLOAT_LE                0xe
 
 /**
  * \brief audio format message
