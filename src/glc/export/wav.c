@@ -201,6 +201,8 @@ int wav_write_hdr(wav_t wav, glc_audio_format_message_t *fmt_msg)
 		sample_size = 3;
 	else if (fmt_msg->format == GLC_AUDIO_S32_LE)
 		sample_size = 4;
+	else if (fmt_msg->format == GLC_AUDIO_FLOAT_LE)
+		sample_size = 4;
 	else {
 		glc_log(wav->glc, GLC_ERROR, "wav",
 			 "unsupported format 0x%02x (stream %d)", fmt_msg->flags, fmt_msg->id);
